@@ -7,9 +7,12 @@ from torch.multiprocessing import Pipe
 from tensorboardX import SummaryWriter
 
 import numpy as np
+import sys
 
 
 def main():
+    total_steps = int(sys.argv[1])
+    print("steps: ", total_steps)
     print({section: dict(config[section]) for section in config.sections()})
     train_method = default_config['TrainMethod']
     env_id = default_config['EnvID']
@@ -147,7 +150,7 @@ def main():
             next_obs = []
     print('End to initalize...')
 
-    while True:
+    for i in range(total_steps):
         total_state, total_reward, total_done, total_next_state, total_action, total_int_reward, total_next_obs, total_ext_values, total_int_values, total_policy, total_policy_np = \
             [], [], [], [], [], [], [], [], [], [], []
         global_step += (num_worker * num_step)
