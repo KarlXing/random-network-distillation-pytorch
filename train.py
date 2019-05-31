@@ -15,7 +15,7 @@ def main():
     env_id = str(sys.argv[2])
     int_coef = float(sys.argv[3])
     print("steps: ", total_steps)
-    print(env_name)
+    print(env_id)
     print(int_coef)
     print({section: dict(config[section]) for section in config.sections()})
     train_method = default_config['TrainMethod']
