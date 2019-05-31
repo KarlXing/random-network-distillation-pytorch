@@ -36,7 +36,7 @@ def main():
 
     env.close()
 
-    is_load_model = True
+    is_load_model = False
     is_render = False
     model_path = 'models/{}.model'.format(env_id)
     predictor_path = 'models/{}.pred'.format(env_id)
