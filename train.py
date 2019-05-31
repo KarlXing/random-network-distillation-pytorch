@@ -117,7 +117,6 @@ def main():
     parent_conns = []
     child_conns = []
     for idx in range(num_worker):
-        print('create:', idx)
         parent_conn, child_conn = Pipe()
         work = env_type(env_id, is_render, idx, child_conn, sticky_action=sticky_action, p=action_prob,
                         life_done=life_done)
@@ -140,8 +139,6 @@ def main():
     print('Start to initailize observation normalization parameter.....')
     next_obs = []
     for step in range(num_step * pre_obs_norm_step):
-        if step % 10 == 0:
-            print(step)
         actions = np.random.randint(0, output_size, size=(num_worker,))
 
         for parent_conn, action in zip(parent_conns, actions):
