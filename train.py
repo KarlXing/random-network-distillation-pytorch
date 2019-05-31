@@ -12,10 +12,14 @@ import sys
 
 def main():
     total_steps = int(sys.argv[1])
+    env_id = str(sys.argv[2])
+    int_coef = float(sys.argv[3])
     print("steps: ", total_steps)
+    print(env_name)
+    print(int_coef)
     print({section: dict(config[section]) for section in config.sections()})
     train_method = default_config['TrainMethod']
-    env_id = default_config['EnvID']
+    # env_id = default_config['EnvID']
     env_type = default_config['EnvType']
 
     if env_type == 'mario':
@@ -59,7 +63,7 @@ def main():
     int_gamma = float(default_config['IntGamma'])
     clip_grad_norm = float(default_config['ClipGradNorm'])
     ext_coef = float(default_config['ExtCoef'])
-    int_coef = float(default_config['IntCoef'])
+    # int_coef = float(default_config['IntCoef'])
 
     sticky_action = default_config.getboolean('StickyAction')
     action_prob = float(default_config['ActionProb'])
